@@ -1,0 +1,821 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Hexo, NexT">
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="https://www.jianshu.com/p/53588cf8dbc8https://www.jianshu.com/p/1970fd59de12http://www.cnblogs.com/ysk-china/p/5777299.htmlhttp://strivingboy.github.io/blog/2015/09/27/ios9/https://www.jianshu.com/p/7">
+<meta name="keywords" content="littleshuai">
+<meta property="og:type" content="article">
+<meta property="og:title" content="iOS通用链接配置（点击网页直接打开APP的详情页面）">
+<meta property="og:url" content="http://yoursite.com/2019/03/25/iOS通用链接配置（点击网页直接打开APP的详情页面）/index.html">
+<meta property="og:site_name" content="机灵猴">
+<meta property="og:description" content="https://www.jianshu.com/p/53588cf8dbc8https://www.jianshu.com/p/1970fd59de12http://www.cnblogs.com/ysk-china/p/5777299.htmlhttp://strivingboy.github.io/blog/2015/09/27/ios9/https://www.jianshu.com/p/7">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://yoursite.com/2019/03/25/images/tongyonglianjie01.jpg">
+<meta property="og:image" content="http://yoursite.com/2019/03/25/images/tongyonglianjie02.jpg">
+<meta property="og:image" content="http://yoursite.com/2019/03/25/images/tongyonglianjie02.jpg">
+<meta property="og:image" content="http://yoursite.com/2019/03/25/images/tongyonglianjie04.jpng">
+<meta property="og:image" content="http://yoursite.com/2019/03/25/images/tongyonglianjie05.jpg">
+<meta property="og:image" content="http://yoursite.com/2019/03/25/images/tongyonglinajie06.jpg">
+<meta property="og:updated_time" content="2019-05-17T02:05:49.007Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="iOS通用链接配置（点击网页直接打开APP的详情页面）">
+<meta name="twitter:description" content="https://www.jianshu.com/p/53588cf8dbc8https://www.jianshu.com/p/1970fd59de12http://www.cnblogs.com/ysk-china/p/5777299.htmlhttp://strivingboy.github.io/blog/2015/09/27/ios9/https://www.jianshu.com/p/7">
+<meta name="twitter:image" content="http://yoursite.com/2019/03/25/images/tongyonglianjie01.jpg">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2019/03/25/iOS通用链接配置（点击网页直接打开APP的详情页面）/">
+
+
+
+
+
+  <title>iOS通用链接配置（点击网页直接打开APP的详情页面） | 机灵猴</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">机灵猴</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">一只调皮的程序媛！</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/25/iOS通用链接配置（点击网页直接打开APP的详情页面）/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="aHuang">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="机灵猴">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">iOS通用链接配置（点击网页直接打开APP的详情页面）</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-03-25T17:36:11+08:00">
+                2019-03-25
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p><a href="https://www.jianshu.com/p/53588cf8dbc8" target="_blank" rel="noopener">https://www.jianshu.com/p/53588cf8dbc8</a><br><a href="https://www.jianshu.com/p/1970fd59de12" target="_blank" rel="noopener">https://www.jianshu.com/p/1970fd59de12</a><br><a href="http://www.cnblogs.com/ysk-china/p/5777299.html" target="_blank" rel="noopener">http://www.cnblogs.com/ysk-china/p/5777299.html</a><br><a href="http://strivingboy.github.io/blog/2015/09/27/ios9/" target="_blank" rel="noopener">http://strivingboy.github.io/blog/2015/09/27/ios9/</a><br><a href="https://www.jianshu.com/p/734c3eff8feb" target="_blank" rel="noopener">https://www.jianshu.com/p/734c3eff8feb</a><br>下面摘自小孩的技术博客：</p>
+<h3 id="iOS9-Universal-Links-（通用链接）"><a href="#iOS9-Universal-Links-（通用链接）" class="headerlink" title="iOS9 Universal Links （通用链接）"></a>iOS9 Universal Links （通用链接）</h3><h4 id="“What-is-Universal-Links-”"><a href="#“What-is-Universal-Links-”" class="headerlink" title="“What is Universal Links?”"></a>“What is Universal Links?”</h4><p>Apple 推出通用链接：一种能够方便的通过传统 HTTP 链接来启动 APP, 使用相同的网址打开网站和 APP。<br>通过唯一的网址, 不需要特别的schema就可以链接一个特定的视图到APP 里面 。比如：在微信中使用了通用链接, 那么用户在Safari、UIWebView或者 WKWebView点击一个链接, iOS设备上的微信app怎会在微信里面自动打开这个页面, 如果没有安装则在Safrai中打开响应链接。</p>
+<blockquote>
+<p>NOTE: Universal links let iOS 9 users open your app when they tap links to your website within WKWebView and UIWebView views and Safari pages, in addition to links that result in a call to openURL:, such as those that occur in Mail, Messages, and other apps.</p>
+</blockquote>
+<p>For users who are running versions of iOS earlier than 9.0, tapping a universal link to your website opens the link in Safari.</p>
+<h4 id="“How-to-support-Universal-Links-”"><a href="#“How-to-support-Universal-Links-”" class="headerlink" title="“How to support Universal Links?”"></a>“How to support Universal Links?”</h4><ul>
+<li>Step1:创建一个json 格式的apple-app-site-associatio 文件如下：<br>{<pre><code>&quot;applinks&quot;: {
+    &quot;apps&quot;: [],
+    &quot;details&quot;: [
+        {
+            &quot;appID&quot;: &quot;9JA89QQLNQ.com.apple.wwdc&quot;,
+            &quot;paths&quot;: [ &quot;/wwdc/news/&quot;, &quot;/videos/wwdc/2015/*&quot; ]
+        },
+        {
+            &quot;appID&quot;: &quot;TeamID.BundleID2&quot;,
+            &quot;paths&quot;: [ &quot;*&quot; ]
+        }
+    ]
+}
+</code></pre>}<br>根据 paths 键设定允许的路径列表, 或只是一个星号如果你想打开 APP 而不管路径是 什么<br>注意：paths 路径是大小写敏感的<br>NOTE:The website paths you specify in the paths array are case sensitive.”<br>“appID”组成部分：TeamID + BundleId TeamID可以从苹果开发账号页面也“Your Account”下查看，BundleId就直接在工程里看了</li>
+<li>Step2:上传 apple-app-site-association 文件<br>注意：<br>1、上传到web server根目录下<br>2、web server 需要支持https,客户端需要通告https访问，并且不支持任何重定向<br>upload it to the root of your HTTPS web server. The file needs to be accessible via HTTPS—without any redirects—at https:///apple-app-site-association. Next, you need to handle universal links in your app.</li>
+<li>Step3:在 APP 里处理通用链接<ul>
+<li>1、添加域名到 Capabilities<br>在 Xcode 的 capabilities 里 添加你的 APP 域名, 必须用 applinks: 前置它这将使APP从上门的域名请求Step2中创建的JSON 文件 apple-app-site-association。当你第一次启动 APP，它会从 <a href="https://domain.com/apple-app-site-association" target="_blank" rel="noopener">https://domain.com/apple-app-site-association</a> 下载这个文件。</li>
+<li>2、在 AppDelegate 里支持通用链接<br>实现： </li>
+</ul>
+</li>
+</ul>
+<ul>
+<li>(BOOL)application:(UIApplication <em>)application continueUserActivity:(NSUserActivity </em>)userActivity restorationHandler:(void (^)(NSArray *restorableObjects))restorationHandler方法，如下：<br><img src="../images/tongyonglianjie01.jpg" alt="tongyonglianjie01"><br>当 userActivity 是 NSUserActivityTypeBrowsingWeb 类型, 则意味着它已经由通用链接 API 代理。这样的话, 它保证用户打开的 URL 将有一个非空的 webpageURL 属性<h4 id="最后也是最重要的一点就是："><a href="#最后也是最重要的一点就是：" class="headerlink" title="最后也是最重要的一点就是："></a>最后也是最重要的一点就是：</h4>如果网页链接打开的页面显示apple-app-site-association这段json文件里面的内容就说明配置已经成功了；需要用Safari打开网页链接，所以这里为了用户体验，web端需要做页面引导：这时如果是在真机调试的话会进入continueUserActivity方法；只能真机测试，只能是Https的域名；<br>xcode代码配置方法：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line">// response to universal links</span><br><span class="line">- (BOOL)application:(UIApplication *)application continueUserActivity:(nonnull NSUserActivity *)userActivity restorationHandler:(nonnull void (^)(NSArray&lt;id&lt;UIUserActivityRestoring&gt;&gt; * _Nullable))restorationHandler &#123;</span><br><span class="line">    // 我们需要的跳转</span><br><span class="line">    if ([userActivity.activityType isEqualToString:NSUserActivityTypeBrowsingWeb]) &#123;</span><br><span class="line">        NSURL *webPageUrl = userActivity.webpageURL;</span><br><span class="line">        NSString *host = webPageUrl.host;</span><br><span class="line">#ifdef DEBUG</span><br><span class="line">      NSLog(@&quot;-----host=%@,port=%@,user=%@,password=%@,path=%@,fragnment=%@,prametarString=%@,query=%@,relativePath=%@&quot;,webPageUrl.host,webPageUrl.port,webPageUrl.user,webPageUrl.password,webPageUrl.path,webPageUrl.fragment,webPageUrl.parameterString,webPageUrl.query,webPageUrl.relativePath);</span><br><span class="line">#endif</span><br><span class="line">        if ([host containsString:@&quot;wasaisports.com&quot;]) &#123;</span><br><span class="line">            // 需要跳转到自己的APP</span><br><span class="line">            ActivityDetailViewController *vc = [[ActivityDetailViewController alloc]init];</span><br><span class="line">            NSString *query = webPageUrl.query;</span><br><span class="line">            NSArray *queryArray = [query componentsSeparatedByString:@&quot;&amp;&quot;];</span><br><span class="line">            __block NSString *activityID = @&quot;&quot;;</span><br><span class="line">            __block NSString *clabId = @&quot;&quot;;</span><br><span class="line">            [queryArray enumerateObjectsUsingBlock:^(NSString*  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) &#123;</span><br><span class="line">                if (idx == 0) &#123;</span><br><span class="line">                    NSString *queryString = [obj stringByReplacingOccurrencesOfString:@&quot;activityId=&quot; withString:@&quot;&quot;];</span><br><span class="line">                    activityID = queryString;</span><br><span class="line">                &#125;else&#123;</span><br><span class="line">                    NSString *queryString = [obj stringByReplacingOccurrencesOfString:@&quot;clabId=&quot; withString:@&quot;&quot;];</span><br><span class="line">                    clabId = queryString;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;];</span><br><span class="line">            vc.activityId = activityID;</span><br><span class="line">            [[ToolUtil getCurrentViewController].navigationController pushViewController:vc animated:YES];</span><br><span class="line">        &#125;else&#123;</span><br><span class="line">            // 无法识别的域名，Safari打开</span><br><span class="line">            if (@available(iOS 10.0, *)) &#123;</span><br><span class="line">                [[UIApplication sharedApplication] openURL:webPageUrl options:nil completionHandler:nil];</span><br><span class="line">            &#125; else &#123;</span><br><span class="line">                [[UIApplication sharedApplication] openURL:webPageUrl];</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    return YES;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>json文件的配置：配置完之后要给后台上传到服务器根目录下；</p>
+<h4 id="么有下载APP时的跳转"><a href="#么有下载APP时的跳转" class="headerlink" title="么有下载APP时的跳转:"></a>么有下载APP时的跳转:</h4><p>需要前端或者后台那边做是否已经下载安装APP的判断，如果已经下载直接请求苹果端配置的json文件，iOS 拦截URL地址判断进入指定的页面；如果没有安装APP就不请求这个json配置文件，重定向到APP Store的下载链接；<br>后台重定向：配置json文件必须在.wellKnown 下获取才可以重定向<br><a href="http://www.wasaisports.com/.well-known/apple-app-site-association（web给的链接应该是这样子的，才可以在么有安装APP的时候将链接重定向到APPStore）" target="_blank" rel="noopener">http://www.wasaisports.com/.well-known/apple-app-site-association（web给的链接应该是这样子的，才可以在么有安装APP的时候将链接重定向到APPStore）</a><br>重定向问题：需要一个演示操作，如果没有延时，就会直接先弹出去APP Store 的弹出框，不会跳到详情页；<br>重定向问题：json文件没有读取到：<br><img src="../images/tongyonglianjie02.jpg" alt="tongyonglianjie02"><br><img src="../images/tongyonglianjie02.jpg" alt="tongyonglianjie03"><br>点击可以跳转到APPStore。<br>后台重定向解决办法：<br>后台必须先请求到json文件后延时2000ms（或者其他合适的时间），然后再走重定向方法；</p>
+<h4 id="知乎的universal-link-制作流程："><a href="#知乎的universal-link-制作流程：" class="headerlink" title="知乎的universal link 制作流程："></a>知乎的universal link 制作流程：</h4><p>测试链接： <a href="https://www.zhihu.com/question/22914651" target="_blank" rel="noopener">https://www.zhihu.com/question/22914651</a><br>未安装APP的流程和已经下载安装的流程 自测一下，截图就不贴了。</p>
+<h4 id="Universal-Link-打开APP前端部署采坑记"><a href="#Universal-Link-打开APP前端部署采坑记" class="headerlink" title="Universal Link 打开APP前端部署采坑记"></a>Universal Link 打开APP前端部署采坑记</h4><blockquote>
+<blockquote>
+</blockquote>
+<p>Schema VS Universal Link<br>Deeplink相关的技术，在wap中唤起app其实应用最最广泛的并不是Universal Link，而是直接Schema跳转<br>location.href = ‘schema://xxxx’<br>并且一般各大APP都会给自己做一套路由体系，这样其实可以直接在schema头后面对接路由体系，做到一行schema定位打开任意App内功能界面（我就不详细扯路由的事了）<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">- (BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation &#123;</span><br><span class="line">    if ([[url absoluteString] hasPrefix:@&quot;schema://&quot;]) &#123;</span><br><span class="line">        [[WKDispatcher sharedInstance] operationObjectFromRouteURL:[url absoluteString]];//路由</span><br><span class="line">        return YES;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+</blockquote>
+<p>如果单纯为了实现deeplink — 在WAP上打开App，并且传递来数据信息，定位App内的具体逻辑，那么Schema就够了，其实没必要上Universal Link，Schema相当于是很特殊的Url，他是schema://xxx这种样子，如果安装了APP才能支撑跳转这种Schema Url，如果没安装APP就没任何效果，而Universal Link则是把普通url，长<a href="http://xxx.xxx.xxx/xxx这样的Normal" target="_blank" rel="noopener">http://xxx.xxx.xxx/xxx这样的Normal</a> Url，如果安装了App，就能像Schema一样传递给App，延续App内逻辑，如果没装App，则还会继续在浏览器里跳转这个Normal Url</p>
+<blockquote>
+<blockquote>
+</blockquote>
+<p>Schema的弊端<br>Schema无法判断是否安装App<br>一定会有这样的产品需求的：</p>
+<ul>
+<li>如果已经安装App，则打开App</li>
+<li>如果没有安装App，则前往下载App<br>浏览器实际上是没有能力判断手机里是否安装了某个App的，所以聪明的程序员们选择了讨巧的方法<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">try &#123;</span><br><span class="line">    var appSchema = &apos;schema://xxxx&apos;;</span><br><span class="line">    if ($.os.ios) &#123;</span><br><span class="line">        location.href = openNALocation; //location.href 打开schema</span><br><span class="line">    &#125;</span><br><span class="line">    else &#123;</span><br><span class="line">        $(&apos;body&apos;).append(&apos;&lt;iframe src=&quot;&apos; + appSchema + &apos;&quot;&gt;&lt;/iframe&gt;&apos;); //iFrame 打开 schema</span><br><span class="line">    &#125; </span><br><span class="line">&#125;catch (e) &#123;&#125;</span><br><span class="line">//延迟1000秒</span><br><span class="line">setTimeout(function () &#123;</span><br><span class="line">    if ($.os.ios) &#123;</span><br><span class="line">        location.href = `https://itunes.apple.com/us/app/idxxxxxxx?mt=8`;</span><br><span class="line">    &#125;</span><br><span class="line">    else &#123;</span><br><span class="line">        location.href = `https://xxx.xxx.xxx/xxx/xxx.apk`;//直接apk下载link</span><br><span class="line">    &#125; </span><br><span class="line">&#125;，1000）</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</blockquote>
+<ul>
+<li>首先发起跳转Schema<ul>
+<li>如果没安装App，会打开App失败，没效果</li>
+<li>如果安装App，会成功打开App</li>
+</ul>
+</li>
+<li>延迟1000ms<ul>
+<li>如果没安装App，Schema打开失败，等1000秒后会自动跳转</li>
+<li>如果安装App，App会打开，当前网页会被暂停，这延迟代码不会执行<br>聪明的人会发现，这样有个风险，如果用户打开APP成功后，又手动切回浏览器，那么延迟1000ms的代码依然会执行，安卓会跳出下载apk包得提示，iOS会又再度跳到Appstore，但这个瑕疵也不是太大的问题，所以这种做法被普遍采用，运用在各种安装就跳转，不安装就下载的用户场景。<br>安卓这么用挺好，iOS有个讨厌的弹框<br>如果用户没有安装App，那么他一定会经历2个事情</li>
+</ul>
+</li>
+<li>schema打开app，但是失败</li>
+<li>延迟后，跳转下载App<br>在第一个环节，安卓上schema打开失败，没有任何反映，也没有任何提示，一切顺利，但是iOS就不同了。<br>schema会弹个可恶的跳转失败的框<br><img src="../images/tongyonglianjie04.jpng" alt="tongyonglianjie04"><br>然后再延迟后弹跳转AppStore的框<br><img src="../images/tongyonglianjie05.jpg" alt="tongyonglianjie05"><blockquote>
+<blockquote>
+</blockquote>
+<p>Schema被很多App禁止，比如微信手百<br>Schema被广泛使用，从浏览器中唤起打开专门的App，但这并不被很多App认可，比如微信，手机百度，他们本身除了浏览网页以外有其他的使用场景，所以站在微信/手百的角度，并不希望用户为了看一些分享和内容就跳出微信/手百的App，于是这些客户端拦截了Schema，使得所有Schema都无法生效。<br>于是不得已，广大开发者只好针对，微信/手百，等特殊UA信息，展现出蒙层，引导用户用系统/外部浏览器打开</p>
+<blockquote>
+</blockquote>
+<p>Universal Link 解决 Schema的弊端<br>开篇就说了，如果你单纯为了能让wap打开App，Schema就能做到了，Universal Link的意义则是把普通url，也赋予了能打开App的能力，而不必编写专门的Schema Url去唤起App<br>Schema 的2个弊端确实能通过Universal Link解决<br>不同于Schema，在没装App的时候，Universal Link他也是一个合法的url链接，浏览器可以正常跳转，因此不会出现在iOS上讨人厌的框<br>Universal Link目前还没有基于iOS的UI/WKWebView的应用进行拦截，所以目前看还是能突破微信/手百的封锁。（以后，不好说啊~）</p>
+<blockquote>
+</blockquote>
+<p>Universal Link 开发<br>类似的话题，随便搜搜Universal Link能搜到一大堆，我这里就略微多啰嗦两句，一般各大教程里会反复说的，我尽量一带而过，多说点我遇到的坑</p>
+</blockquote>
+<h4 id="配置apple-app-association"><a href="#配置apple-app-association" class="headerlink" title="配置apple-app-association"></a>配置apple-app-association</h4>究竟哪些的url会被识别为Universal Link，全看这个apple-app-association文件<br><a href="https://developer.apple.com/library/content/documentation/General/Conceptual/AppSearch/UniversalLinks.html" target="_blank" rel="noopener">Apple Document UniversalLinks.html</a></li>
+<li>你的域名必须支持Https</li>
+<li>域名根目录下放这个文件apple-app-association，不带任何后缀</li>
+<li>文件为json保存为文本即可</li>
+<li>json按着官网要求填写即可<br>怎么写json其实没啥可教的，满世界的文章都教你咋写了，我们看个例子，点下面的链接，你的浏览器就会自动把知乎的apple-app-association的json file给down下来<br><a href="https://oia.zhihu.com/apple-app-site-association" target="_blank" rel="noopener">知乎的 apple-app-association 文件</a><br>划重点<br>有心人可能看到，知乎的Universal Link配置的是 oia.zhihu.com 这个域名，并且对这个域名下比如/answers /questions /people 等urlpath进行了识别，也就是说，知乎的universal link，只有当你访问 <a href="https://oia.zhihu.com/questions/xxxx，在移动端会触发Universal" target="_blank" rel="noopener">https://oia.zhihu.com/questions/xxxx，在移动端会触发Universal</a> Link，而知乎正经的Urlhttps//<a href="http://www.zhihu.com/questions/xxx是不会触发Universal" target="_blank" rel="noopener">www.zhihu.com/questions/xxx是不会触发Universal</a> Link的，知乎为什么制作，为什么不把他的主域名配置Universal Link，这是由于Universal Link的一个大坑所致<br>PS.<blockquote>
+<p>apple-app-association 你可以看完全了知乎的json file，会发现里面也不止是 universal link<br>苹果的一些其他功能都和apple-app-association有关，都需要配置这个文件，增加更多json字段信息<br>比如Hand off 还有一些跨Web&amp;App的分享</p>
+</blockquote>
+<h4 id="测试是否正确"><a href="#测试是否正确" class="headerlink" title="测试是否正确"></a>测试是否正确</h4>苹果官方提供了一个网站来测试你配置的域名apple-app-association是否正常work<br><a href="https://search.developer.apple.com/appsearch-validation-tool/" target="_blank" rel="noopener">https://search.developer.apple.com/appsearch-validation-tool/</a><br>这个网站有点SB，就是你用他测试不通过，其实Universal Link也可能不生效的，比如我把知乎的oia.zhihu.com输入进去，他就没感应到，认为没有。我搜索的时候，发现也有人发现了这个问题，反正可以当个参考<h4 id="配置iOS-App工程"><a href="#配置iOS-App工程" class="headerlink" title="配置iOS App工程"></a>配置iOS App工程</h4></li>
+<li>开发者中心证书打开Associated Domains</li>
+<li>工程配置Associated Domains</li>
+<li>将你apple-app-association所在域名配置进去</li>
+<li>给你的工程像Schema的OpenUrl一样，编写App被唤醒后的处理逻辑<br><img src="../images/tongyonglinajie06.jpg" alt="tongyonglinajie06"><br>#pragma mark Universal Links<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">- (BOOL)application:(UIApplication *)application continueUserActivity:(NSUserActivity *)userActivity restorationHandler:(void (^)(NSArray * _Nullable))restorationHandler &#123;</span><br><span class="line">    if ([userActivity.activityType isEqualToString:NSUserActivityTypeBrowsingWeb]) &#123;</span><br><span class="line">        NSURL *webUrl = userActivity.webpageURL;</span><br><span class="line">        [self handleUniversalLink:webUrl]; // 转化为App路由</span><br><span class="line">    &#125;</span><br><span class="line">    return YES;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>恩比较千篇一律，我不多说了</p>
+<h4 id="Universal-Link的基本运作流程"><a href="#Universal-Link的基本运作流程" class="headerlink" title="Universal Link的基本运作流程"></a>Universal Link的基本运作流程</h4><ul>
+<li>APP第一次启动 or APP更新版本后第一次启动</li>
+<li>APP向工程里配置的域名发起Get请求拉取apple-app-association Json File</li>
+<li>APP将apple-app-association注册给系统</li>
+<li>由任意webview发起跳转的url，如果命中了apple-app-association注册过的通用链接</li>
+<li>打开App，触发Universal Link delegate</li>
+<li>没命中，webview继续跳转url<br>在你进行apple-app-association 以及 App工程的配置之后，整个Universal Link的运作流程完全由系统控制了<h3 id="Universal-Link-采坑"><a href="#Universal-Link-采坑" class="headerlink" title="Universal Link 采坑"></a>Universal Link 采坑</h3>整个Universal Link其实真要只是开发完成，完全写不了几行代码，就差不多搞定了，不过还真是踩了几个坑<h4 id="跨域"><a href="#跨域" class="headerlink" title="跨域"></a>跨域</h4>前端开发经常面临跨域问题，恩Universal Link也有跨域问题，但不一样的是，Universal Link，必须要求跨域，如果不跨域，就不行，就失效，就不工作。（iOS 9.2之后的改动，苹果就这么规定这么设计的）<br>这也是上面拿知乎举例子的时候重点强调的一个问题，知乎为什么使用oia.zhihu.com做Universal Link？</li>
+<li>假如当前网页的域名是 A</li>
+<li>当前网页发起跳转的域名是 B</li>
+<li>必须要求 B 和 A 是不同域名，才会触发Universal Link</li>
+<li>如果B 和 A 是相同域名，只会继续在当前WebView里面进行跳转，哪怕你的Universal Link一切正常，根本不会打开App<br>是不是不太好理解，那直接拿知乎举例子<br><a href="https://www.zhihu.com/question/22914651" target="_blank" rel="noopener">https://www.zhihu.com/question/22914651</a><br>知乎的一般网页URL都是<a href="http://www.zhihu.com域名，你在微信朋友圈看到了知乎的问题分享，如果copy" target="_blank" rel="noopener">www.zhihu.com域名，你在微信朋友圈看到了知乎的问题分享，如果copy</a> url 你就能看到这样的链接<br>微信里其实是屏蔽Schema的，但是你依然能看到大大的一个按钮App内打开，这确实就是通过Universal Link来实现的，但如果知乎把Universal Link 配在了<a href="http://www.zhihu.com域名，那么即便已经安装了App，Universal" target="_blank" rel="noopener">www.zhihu.com域名，那么即便已经安装了App，Universal</a> Link也是不会生效的。<br>一般的公司都会有自己的主域名，比如知乎的<a href="http://www.zhihu.com，在各处分享传播的时候，也都是直接分享基于主域名的url，但为了解决苹果强制要求跨域才生效的问题，Universal" target="_blank" rel="noopener">www.zhihu.com，在各处分享传播的时候，也都是直接分享基于主域名的url，但为了解决苹果强制要求跨域才生效的问题，Universal</a> Link就不能配置在主域名下，于是知乎才会准备一个oia.zhihu.com域名，专为Universal Link使用，不会跟任何主动传播分享的域名撞车，从而在任何活动WAP页面里，都能顺利让Universal Link生效。<br>简单一句话</li>
+<li>只有当前webview的url域名，与跳转目标url域名不一致时，Universal Link 才生效<h4 id="apple-app-association-覆盖"><a href="#apple-app-association-覆盖" class="headerlink" title="apple-app-association 覆盖"></a>apple-app-association 覆盖</h4>我们业务机房的集群是大部门下几条业务线共用的，有一整套云服务系统来进行机房集群的管理，有统一的接入层进行分发。虽然是不同的产品线，不同的服务，但是共享分布式的机房进行运作的。<br>很多Universal Link的教学文章是这么写的</li>
+<li>将json命名为 apple-app-association 不要乱改名</li>
+<li>将file 上传到域名所在的服务器根目录下<br>于是我就将我们文库的apple-app-association，上传到我准备的wenkuUniversal域名的所在机器的根目录下。（因为机房都是分布式的，所以其实就是upload的全部门下的很多机器上）<br>同部门另一个产品线阅读后来也开始尝试Universal Link，也要把他们写好的apple-app-association上传到他们的yueduUniversal域名所在的机器的根目录下。<br>因为都是同样的文件名，又因为整个事业部机器实际上是共用的，因此就发生了覆盖。<br>解决办法</li>
+<li>共用同一个 apple-app-association<br>因为apple-app-association的具体内容里有App 的Bundle ID在，因此可以简单的把2个json file 进行merge，你的App bundle 生效你的link，我的App bundle生效我的link<br>但其实并不推荐，毕竟双方都要小心在更新的时候，不能覆盖对方，并且这样做也很不合理，apple-app-association也不止为universal link 一个feature工作，当面临跨app / web share 甚至hand off的时候，共用一个json file 还是有坑</li>
+<li>接入层分发不同json file<br>2个产品线的link域名其实是不一样的，只不过恰巧这两个域名最重打到得机器是同一个或者说有重叠，因此产生了覆盖，完全可以将json文件保存成各自的名字，在接入层对域名进行分发<br>最终App也是通过Get请求去拉取apple-app-association的，只要Get到，并且ssl安全性上符合要求（强制https）就没问题<br>隐藏的坑：apple-app-association被覆盖后如何更新<br>我们线上已经work的Universal Link功能，突然有一天发现坏了，查了一圈最后查到被阅读覆盖了，那就修复呗，修复倒是没问题，问题在于修复后的universal link，用户必须重新安装一次app，才能重新work，这个太坑了啊<br>所以关键是需要掌握apple-app-association的更新时机，反复重新杀APP重开完全没用，删了APP重装确实有用，但不可能让用户这么去做<br><a href="https://stackoverflow.com/questions/35187576/does-the-apple-app-site-association-json-file-ever-get-updated-in-app" target="_blank" rel="noopener">https://stackoverflow.com/questions/35187576/does-the-apple-app-site-association-json-file-ever-get-updated-in-app</a><br>这里解释了，每次App安装后的第一次Launch，会拉取apple-app-association，除此之外在Appstore每次App的版本更新后的第一次Launch，也会拉取apple-app-association。<br>也就是说，一旦不小心因为意外apple-app-association，想要挽回又让那部分用户无感，App再发一个版本就好了<h3 id="Universal-Link-会因为用户行为而失效"><a href="#Universal-Link-会因为用户行为而失效" class="headerlink" title="Universal Link 会因为用户行为而失效"></a>Universal Link 会因为用户行为而失效</h3>Universal Link 触发后打开App，这时候App的状态栏右上角会有文字提示来自XXApp，可以点状态栏的文字快速返回原来的AP<br>如果用户点了返回微信，就会被苹果记住，认为用户并不需要跳出原App打开新App，因此这个App的Universal Link会被关闭，再也无效。<br>想要开启也不是不行，让用户重新用safari打开，universal link的页面，然后会出现很像苹果smart bar的东西，那个东西点了后就能打开（我是看到的，我没亲自操作过）<h3 id="Universal-Link-业务部署"><a href="#Universal-Link-业务部署" class="headerlink" title="Universal Link 业务部署"></a>Universal Link 业务部署</h3>知乎的apple-app-association可以看到里面有一大堆的WAP的URL，比如/answers /questions /people等，知乎都将它一一映射到App得对应界面里，问题/回答/人详情页。这是因为知乎的WAP站和APP的功能几乎是一致的。因此知乎的Universal Link的使用方式，可以说是很经典的遵循着苹果的原始设计初衷通用链接，将wap url，变成通用url，同样的url，对应着2个跳转，web跳转/app跳转，但是他们是同一个功能。<br>我们产品线面临的情况不一样，我们的产品线文库，他的WAP和APP功能差异非常大，可以说除了文档阅读页/view，WAP与APP都有这个功能，其他的功能WAP是WAP的，APP是APP的，形态和场景都有明显差异。除了/view这个功能，我们可以按着通用链接的设计，将APP阅读页跳转，与WAP阅读页跳转进行统一。其他时候Universal Link对于我们业务来说就是一个更强大的Schema（突破旧Schema局限的=），他只需要跳转到APP，他没有合法的WAP Url可以让浏览器在没有安装App的情况下继续跳转。<h4 id="我们的Universal-Link-业务部署"><a href="#我们的Universal-Link-业务部署" class="headerlink" title="我们的Universal Link 业务部署"></a>我们的Universal Link 业务部署</h4>我们的Universal Link就像知乎一样，没有选择我们的主域名，而是选了一个完全没在WAP上有任何页面和流量的域名，我们的apple-app-association是这么写的<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    &quot;appID&quot;: &quot;xxxxxx.xxx.xxx.xxxxx&quot;,</span><br><span class="line">    &quot;paths&quot;:[ &quot;/view/*&quot;,</span><br><span class="line">              &quot;/_iosuniversallink/*&quot;]</span><br><span class="line">&#125;,</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>我们的AppDelegate中具体handleUniversalLink的逻辑是这么写的<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">- (BOOL)handleUniversalLink:(NSURL *)url &#123;</span><br><span class="line">    NSURLComponents *components = [NSURLComponents componentsWithURL:url resolvingAgainstBaseURL:YES];</span><br><span class="line">    NSString *host = components.host;</span><br><span class="line">    if ([host isEqualToString:@&quot;xxx.xxx.xxx&quot;]) &#123; //host判断，虽然没啥意义</span><br><span class="line">        if (pathComponents.count &gt;= 3) &#123;</span><br><span class="line">            //地址匹配+页面跳转</span><br><span class="line">            NSString *router;</span><br><span class="line">            if ([pathComponents[1] isEqualToString:@&quot;view&quot;]) &#123;</span><br><span class="line">                router = @&quot;xxx&quot;;//生成打开APP阅读页的专属Router</span><br><span class="line">            &#125; else if ([pathComponents[1] isEqualToString:@&quot;_iosuniversallink&quot;]) &#123;</span><br><span class="line">                router = @&quot;xxx&quot;;//解析出APP能识别的任意路由，</span><br><span class="line">            &#125;</span><br><span class="line">            if (router &amp;&amp; router.length &gt; 0) &#123;</span><br><span class="line">                [[WKDispatcher sharedInstance] operationObjectFromRouteURL:router];//无论是阅读页路由还是任意路由，发起跳转</span><br><span class="line">            &#125;</span><br><span class="line">            return YES;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    return NO;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>可以看出来我只打开了这个域名下<a href="https://xxx.xxx.xxx/view/" target="_blank" rel="noopener">https://xxx.xxx.xxx/view/</a><em> 和 <a href="https://xxx.xxx.xxx/_iosuniversallink/" target="_blank" rel="noopener">https://xxx.xxx.xxx/_iosuniversallink/</a></em>2个Universal Link Path.对没错，不像知乎那么多。</p>
+<ul>
+<li>/view/<em> 后面的</em>直接是阅读页ID，用于快速生成阅读页路由，发起跳转</li>
+<li>/_iosuniversallink/<em> 后面的</em>其实应该填写的是我们App已经设计好的路由字符串，识别出路由字符串后，发起跳转<br>其实可以看出来/_iosuniversallink是完全包含/view的，因为APP阅读页天然也是包含在我们的路由规则内的，只要这里有路由策略，扩展力已经足够支持任意APP页面了，因此apple-app-association只配置了2个，但是如果有计划外的特殊case，大不了更新一下，也没多大事。<h4 id="为了统一WAP-amp-APP，为了通用链接的效果"><a href="#为了统一WAP-amp-APP，为了通用链接的效果" class="headerlink" title="为了统一WAP&amp;APP，为了通用链接的效果"></a>为了统一WAP&amp;APP，为了通用链接的效果</h4>我刚才提到，我们选择的Universal Link的域名其实是一个没有实际页面的域名，也就是说<a href="https://xxx.xxx.xxx/view/*这个url，如果没安装APP因此触发WebView继续跳转原地址，会直接404。处理很简单，重定向一下" target="_blank" rel="noopener">https://xxx.xxx.xxx/view/*这个url，如果没安装APP因此触发WebView继续跳转原地址，会直接404。处理很简单，重定向一下</a><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">router.use(&apos;/view&apos;, function (req, res, next) &#123;</span><br><span class="line">    var path = req.path;</span><br><span class="line">    res.redirect(&apos;https://wk.baidu.com/view&apos; + path + &apos;?st=1#1&apos;);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>整个效果就是</p>
+<ul>
+<li>跳转<a href="https://xxx.xxx.xxx/view/" target="_blank" rel="noopener">https://xxx.xxx.xxx/view/</a>*<ul>
+<li>已安装App<ul>
+<li>打开App 触发handleUniversalLink</li>
+<li>走到/view/分支，拼接阅读页路由</li>
+<li>跳转</li>
+</ul>
+</li>
+<li>未安装App<ul>
+<li>WebView原地跳转<a href="https://xxx.xxx.xxx/view/" target="_blank" rel="noopener">https://xxx.xxx.xxx/view/</a>*</li>
+<li>命中服务器的重定向逻辑</li>
+<li>重定向到<a href="https://wk.baidu.com/view/" target="_blank" rel="noopener">https://wk.baidu.com/view/</a>*</li>
+<li>打开我们的WAP阅读页<br>这就是为啥明明/_iosuniversallink是完全包含/view能力的，但还是要把/view/单独处理的原因，为的是实现WAP与APP的统一设计，为了通用链接这个初衷<br>不为了统一WAP&amp;APP 只拿来当强化版Schema使用<br>同样的道理，<a href="https://xxx.xxx.xxx/_iosuniversallink/*这个url，也没有实际的页面，如果不进行重定向，也会直接返回404，因此看一眼重定向的代码" target="_blank" rel="noopener">https://xxx.xxx.xxx/_iosuniversallink/*这个url，也没有实际的页面，如果不进行重定向，也会直接返回404，因此看一眼重定向的代码</a><br>router.use(‘/_iosuniversallink’, function (req, res, next) {<br>var redirecturl = ‘<a href="https://wk.baidu.com/topic/naiosappstore&#39;" target="_blank" rel="noopener">https://wk.baidu.com/topic/naiosappstore&#39;</a>;<br>res.redirect(redirecturl);<br>});<br>解释一下<a href="https://wk.baidu.com/topic/naiosappstore就是我们为iOS下载App准备的专门的WAP单页面，这个页面打开后会自动延迟500ms，发起跳转appstore" target="_blank" rel="noopener">https://wk.baidu.com/topic/naiosappstore就是我们为iOS下载App准备的专门的WAP单页面，这个页面打开后会自动延迟500ms，发起跳转appstore</a><br>整个效果就是</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>跳转<a href="https://xxx.xxx.xxx/_iosuniversallink/" target="_blank" rel="noopener">https://xxx.xxx.xxx/_iosuniversallink/</a>*<ul>
+<li>已安装App<ul>
+<li>打开App 触发handleUniversalLink</li>
+<li>走到/_iosuniversallink/分支，拼接出任意App内的界面路由</li>
+<li>跳转界面</li>
+</ul>
+</li>
+<li>未安装App<ul>
+<li>WebView原地跳转<a href="https://xxx.xxx.xxx/_iosuniversallink/" target="_blank" rel="noopener">https://xxx.xxx.xxx/_iosuniversallink/</a>*</li>
+<li>命中服务器的重定向逻辑</li>
+<li>重定向到<a href="https://wk.baidu.com/topic/naiosappstore" target="_blank" rel="noopener">https://wk.baidu.com/topic/naiosappstore</a></li>
+<li>naiosappstore页面会延迟跳转AppStore</li>
+<li>打开AppStore下载<br>这个设计看起来就是完美解决了PM得需求</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>如果已安装App，跳转对应界面</li>
+<li>如果没安装App，跳转App下载界面<br>解决了旧Schema模式下的弊端问题：</li>
+<li>Schema无法判断是否安装App，只能采用setTimeout的Trick方式</li>
+<li>Schema的Trick方式会有一个丑陋的错误跳转弹框</li>
+<li>Schema无法在微信/手百等App内，打开我们自己的App<br>简单的说，这样设计的初衷就是，我不为了通用链接这一目的来使用Universal Link，来统一WAP&amp;APP的URL跳转，我就为了把Universal Link当做加强版Schema来使用</li>
+</ul>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/03/20/数据同步/" rel="next" title="数据同步">
+                <i class="fa fa-chevron-left"></i> 数据同步
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/04/17/YYKit源码解析/" rel="prev" title="YYKit源码解析">
+                YYKit源码解析 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">aHuang</p>
+              <p class="site-description motion-element" itemprop="description">心态在线，激情在线，健康在线，才能创造未来！</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">4</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#iOS9-Universal-Links-（通用链接）"><span class="nav-number">1.</span> <span class="nav-text">iOS9 Universal Links （通用链接）</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#“What-is-Universal-Links-”"><span class="nav-number">1.1.</span> <span class="nav-text">“What is Universal Links?”</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#“How-to-support-Universal-Links-”"><span class="nav-number">1.2.</span> <span class="nav-text">“How to support Universal Links?”</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#最后也是最重要的一点就是："><span class="nav-number">1.3.</span> <span class="nav-text">最后也是最重要的一点就是：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#么有下载APP时的跳转"><span class="nav-number">1.4.</span> <span class="nav-text">么有下载APP时的跳转:</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#知乎的universal-link-制作流程："><span class="nav-number">1.5.</span> <span class="nav-text">知乎的universal link 制作流程：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Universal-Link-打开APP前端部署采坑记"><span class="nav-number">1.6.</span> <span class="nav-text">Universal Link 打开APP前端部署采坑记</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#配置apple-app-association"><span class="nav-number">1.7.</span> <span class="nav-text">配置apple-app-association</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#测试是否正确"><span class="nav-number">1.8.</span> <span class="nav-text">测试是否正确</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#配置iOS-App工程"><span class="nav-number">1.9.</span> <span class="nav-text">配置iOS App工程</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Universal-Link的基本运作流程"><span class="nav-number">1.10.</span> <span class="nav-text">Universal Link的基本运作流程</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Universal-Link-采坑"><span class="nav-number">2.</span> <span class="nav-text">Universal Link 采坑</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#跨域"><span class="nav-number">2.1.</span> <span class="nav-text">跨域</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#apple-app-association-覆盖"><span class="nav-number">2.2.</span> <span class="nav-text">apple-app-association 覆盖</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Universal-Link-会因为用户行为而失效"><span class="nav-number">3.</span> <span class="nav-text">Universal Link 会因为用户行为而失效</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Universal-Link-业务部署"><span class="nav-number">4.</span> <span class="nav-text">Universal Link 业务部署</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#我们的Universal-Link-业务部署"><span class="nav-number">4.1.</span> <span class="nav-text">我们的Universal Link 业务部署</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#为了统一WAP-amp-APP，为了通用链接的效果"><span class="nav-number">4.2.</span> <span class="nav-text">为了统一WAP&amp;APP，为了通用链接的效果</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">aHuang</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Muse</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
