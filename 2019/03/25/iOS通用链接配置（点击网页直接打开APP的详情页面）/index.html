@@ -22,7 +22,7 @@
 <meta property="og:image" content="http://yoursite.com/2019/03/25/images/tongyonglianjie04.jpng">
 <meta property="og:image" content="http://yoursite.com/2019/03/25/images/tongyonglianjie05.jpg">
 <meta property="og:image" content="http://yoursite.com/2019/03/25/images/tongyonglinajie06.jpg">
-<meta property="og:updated_time" content="2019-05-17T03:46:30.999Z">
+<meta property="og:updated_time" content="2019-05-17T03:58:00.358Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="iOS通用链接配置（点击网页直接打开APP的详情页面）">
 <meta name="twitter:description" content="https://www.jianshu.com/p/53588cf8dbc8https://www.jianshu.com/p/1970fd59de12http://www.cnblogs.com/ysk-china/p/5777299.htmlhttp://strivingboy.github.io/blog/2015/09/27/ios9/https://www.jianshu.com/p/7">
@@ -187,7 +187,7 @@
     <div class="article-entry" itemprop="articleBody">
       
         <p><a href="https://www.jianshu.com/p/53588cf8dbc8" target="_blank" rel="noopener">https://www.jianshu.com/p/53588cf8dbc8</a><br><a href="https://www.jianshu.com/p/1970fd59de12" target="_blank" rel="noopener">https://www.jianshu.com/p/1970fd59de12</a><br><a href="http://www.cnblogs.com/ysk-china/p/5777299.html" target="_blank" rel="noopener">http://www.cnblogs.com/ysk-china/p/5777299.html</a><br><a href="http://strivingboy.github.io/blog/2015/09/27/ios9/" target="_blank" rel="noopener">http://strivingboy.github.io/blog/2015/09/27/ios9/</a><br><a href="https://www.jianshu.com/p/734c3eff8feb" target="_blank" rel="noopener">https://www.jianshu.com/p/734c3eff8feb</a><br>下面摘自小孩的技术博客：</p>
-<h3 id="iOS9-Universal-Links-（通用链接）"><a href="#iOS9-Universal-Links-（通用链接）" class="headerlink" title="iOS9 Universal Links （通用链接）"></a>iOS9 Universal Links （通用链接）</h3><h4 id="“What-is-Universal-Links-”"><a href="#“What-is-Universal-Links-”" class="headerlink" title="“What is Universal Links?”"></a>“What is Universal Links?”</h4><p>Apple 推出通用链接：一种能够方便的通过传统 HTTP 链接来启动 APP, 使用相同的网址打开网站和 APP。<br>通过唯一的网址, 不需要特别的schema就可以链接一个特定的视图到APP 里面 。比如：在微信中使用了通用链接, 那么用户在Safari、UIWebView或者 WKWebView点击一个链接, iOS设备上的微信app怎会在微信里面自动打开这个页面, 如果没有安装则在Safrai中打开响应链接。</p>
+<h3 id="iOS9-Universal-Links-（通用链接）"><a href="#iOS9-Universal-Links-（通用链接）" class="headerlink" title="iOS9 Universal Links （通用链接）"></a>iOS9 Universal Links （通用链接）</h3><h4 id="“What-is-Universal-Links-”"><a href="#“What-is-Universal-Links-”" class="headerlink" title="“What is Universal Links?”"></a>“What is Universal Links?”</h4><p>Apple 推出通用链接：一种能够方便的通过传统 HTTP 链接来启动 APP, 使用相同的网址打开网站和 APP。<br>通过唯一的网址, 不需要特别的schema就可以链接一个特定的视图到APP 里面 。比如：在微信中使用了通用链接, 那么用户在Safari、UIWebView或者 WKWebView点击一个链接, iOS设备上的微信app怎会在微信里面自动打开这个页面, 如果没有安装则在Safrai中打开响应链接。<br><a id="more"></a></p>
 <blockquote>
 <p>NOTE: Universal links let iOS 9 users open your app when they tap links to your website within WKWebView and UIWebView views and Safari pages, in addition to links that result in a call to openURL:, such as those that occur in Mail, Messages, and other apps.</p>
 </blockquote>
@@ -206,7 +206,7 @@
         }
     ]
 }
-</code></pre>}<a id="more"></a></li>
+</code></pre>}</li>
 </ul>
 <p>根据 paths 键设定允许的路径列表, 或只是一个星号如果你想打开 APP 而不管路径是 什么<br>注意：paths 路径是大小写敏感的<br>NOTE:The website paths you specify in the paths array are case sensitive.”<br>“appID”组成部分：TeamID + BundleId TeamID可以从苹果开发账号页面也“Your Account”下查看，BundleId就直接在工程里看了</p>
 <ul>

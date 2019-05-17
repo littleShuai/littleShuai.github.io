@@ -180,9 +180,9 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>YYKit是iOS组件的集合，这个框架的代码量很大，这里就分出几个独立的部分。<br>YYModel - iOS高性能模型框架<br>YYCache - iOS高性能缓存框架<br>YYImage - iOS的图像框架用于显示/编码/解码动画WebP，APNG，GIF<br>YYWebImage - 异步图像加载框架<br>YYText - iOS中强大的文本组件<br>YYKeyboardManager - 访问键盘视图并跟踪键盘动画<br>YYDispatchQueuePool - iOS实用程序类来管理全局调度队列<br>YYAsyncLayer - 用于异步渲染和显示的iOS实用程序类<br>YYCategories - Foundation和UIKit的一组有用分类。。
+        <p>YYKit是iOS组件的集合，这个框架的代码量很大，这里就分出几个独立的部分。<br>YYModel - iOS高性能模型框架<br>YYCache - iOS高性能缓存框架<br>YYImage - iOS的图像框架用于显示/编码/解码动画WebP，APNG，GIF<br>YYWebImage - 异步图像加载框架<br>YYText - iOS中强大的文本组件<br>YYKeyboardManager - 访问键盘视图并跟踪键盘动画<br>YYDispatchQueuePool - iOS实用程序类来管理全局调度队列<br>YYAsyncLayer - 用于异步渲染和显示的iOS实用程序类<br>YYCategories - Foundation和UIKit的一组有用分类。。<br>
         
-          <a class="article-more-a" href="/2019/04/17/YYKit源码解析/#more">more >></a>
+          <a class="article-more-a" href="/2019/04/17/YYKit源码解析/#more">阅读全文 >></a>
         
       
 
@@ -242,33 +242,14 @@
     <div class="article-entry" itemprop="articleBody">
       
         <p><a href="https://www.jianshu.com/p/53588cf8dbc8" target="_blank" rel="noopener">https://www.jianshu.com/p/53588cf8dbc8</a><br><a href="https://www.jianshu.com/p/1970fd59de12" target="_blank" rel="noopener">https://www.jianshu.com/p/1970fd59de12</a><br><a href="http://www.cnblogs.com/ysk-china/p/5777299.html" target="_blank" rel="noopener">http://www.cnblogs.com/ysk-china/p/5777299.html</a><br><a href="http://strivingboy.github.io/blog/2015/09/27/ios9/" target="_blank" rel="noopener">http://strivingboy.github.io/blog/2015/09/27/ios9/</a><br><a href="https://www.jianshu.com/p/734c3eff8feb" target="_blank" rel="noopener">https://www.jianshu.com/p/734c3eff8feb</a><br>下面摘自小孩的技术博客：</p>
-<h3 id="iOS9-Universal-Links-（通用链接）"><a href="#iOS9-Universal-Links-（通用链接）" class="headerlink" title="iOS9 Universal Links （通用链接）"></a>iOS9 Universal Links （通用链接）</h3><h4 id="“What-is-Universal-Links-”"><a href="#“What-is-Universal-Links-”" class="headerlink" title="“What is Universal Links?”"></a>“What is Universal Links?”</h4><p>Apple 推出通用链接：一种能够方便的通过传统 HTTP 链接来启动 APP, 使用相同的网址打开网站和 APP。<br>通过唯一的网址, 不需要特别的schema就可以链接一个特定的视图到APP 里面 。比如：在微信中使用了通用链接, 那么用户在Safari、UIWebView或者 WKWebView点击一个链接, iOS设备上的微信app怎会在微信里面自动打开这个页面, 如果没有安装则在Safrai中打开响应链接。</p>
-<blockquote>
-<p>NOTE: Universal links let iOS 9 users open your app when they tap links to your website within WKWebView and UIWebView views and Safari pages, in addition to links that result in a call to openURL:, such as those that occur in Mail, Messages, and other apps.</p>
-</blockquote>
-<p>For users who are running versions of iOS earlier than 9.0, tapping a universal link to your website opens the link in Safari.</p>
-<h4 id="“How-to-support-Universal-Links-”"><a href="#“How-to-support-Universal-Links-”" class="headerlink" title="“How to support Universal Links?”"></a>“How to support Universal Links?”</h4><ul>
-<li>Step1:创建一个json 格式的apple-app-site-associatio 文件如下：<br>{<pre><code>&quot;applinks&quot;: {
-    &quot;apps&quot;: [],
-    &quot;details&quot;: [
-        {
-            &quot;appID&quot;: &quot;9JA89QQLNQ.com.apple.wwdc&quot;,
-            &quot;paths&quot;: [ &quot;/wwdc/news/&quot;, &quot;/videos/wwdc/2015/*&quot; ]
-        },
-        {
-            &quot;appID&quot;: &quot;TeamID.BundleID2&quot;,
-            &quot;paths&quot;: [ &quot;*&quot; ]
-        }
-    ]
-}
-</code></pre>}
+<h3 id="iOS9-Universal-Links-（通用链接）"><a href="#iOS9-Universal-Links-（通用链接）" class="headerlink" title="iOS9 Universal Links （通用链接）"></a>iOS9 Universal Links （通用链接）</h3><h4 id="“What-is-Universal-Links-”"><a href="#“What-is-Universal-Links-”" class="headerlink" title="“What is Universal Links?”"></a>“What is Universal Links?”</h4><p>Apple 推出通用链接：一种能够方便的通过传统 HTTP 链接来启动 APP, 使用相同的网址打开网站和 APP。<br>通过唯一的网址, 不需要特别的schema就可以链接一个特定的视图到APP 里面 。比如：在微信中使用了通用链接, 那么用户在Safari、UIWebView或者 WKWebView点击一个链接, iOS设备上的微信app怎会在微信里面自动打开这个页面, 如果没有安装则在Safrai中打开响应链接。<br>
         
-          <a class="article-more-a" href="/2019/03/25/iOS通用链接配置（点击网页直接打开APP的详情页面）/#more">more >></a>
+          <a class="article-more-a" href="/2019/03/25/iOS通用链接配置（点击网页直接打开APP的详情页面）/#more">阅读全文 >></a>
         
       
 
       
-    </li></ul></div>
+    </p></div>
     <div class="article-info article-info-index">
       
       
@@ -329,7 +310,7 @@
 <li>内存缓存，内存缓存主要为了节约用户流量，避免相同URL请求多次相同的数据，内存缓存需要根据业务的更新频率和用户请求数据的频率来决定内存缓存数据的有效期。我们可以使用系统方法 NSURLCache，还有优秀的 【 YYCache 】。</li>
 <li>磁盘缓存呢就比如说 NSUserDefault 它比较适合应用于那些数据量小而且不太重要的数据，那么对于 账户信息和账户密码等敏感的数据，我们可以用苹果的 Keychain ，它是带有可逆加密的存储机制，普遍用在各种存密码的需求上。另外由于 APP 卸载只要系统不重装， Keychain 中的数据依旧能够得到保留，以及可被 iCloud 同步的特性，大家都会在这里存储用户唯一的标识串。所以对于要加密，要存 iCloud 的敏感的小数据，一般会用 Keychain；一般结构化的数据或者需要方便查询的数据，我都会以 Plist 的方式去持久化，比如《小奶狗记账》的新建账单的支出、收入类型的选择数据/新建账本的选择场景的数据，就是用的本地的 Plist 文件存储的，还有其他一些表单类目的数据。Archive 方式适合存储平时不太经常使用但是数据量又比较大，或者读取之后希望直接对象化的数据，因为 Archive 会将对象及其对象关系序列化，以至于读取数据的时候需要Decode很花时间，Decode 的过程可以是解压，也可以是对象化，这个可以根据具体中的实现来决定。Stream 就是一般的文件存储了，一般用来存存图片，适合比较经常使用，然而数据量又不算非常大的那种；如果我们还希望对数据进行增、删、改、查等操作而且数据的状态和类别会发生变化的时候就比较适合采取数据库的存储方式了。我比较喜欢和常用的数据库是【 LKDBHelper 】，它是对FMDB的封装，实现【 ORM 】面向对象的操作数据库。也可以用系统提供的 CoreData ，但是CoreData被过度封装和设计，以至于不太灵活而且使用非常麻烦相对来说 FMDB更加的灵活和方便可以直接操作数据库。
         
-          <a class="article-more-a" href="/2019/03/20/数据同步/#more">more >></a>
+          <a class="article-more-a" href="/2019/03/20/数据同步/#more">阅读全文 >></a>
         
       
 
@@ -389,9 +370,9 @@
     <div class="article-entry" itemprop="articleBody">
       
         <h3 id="YYCache-源码分析"><a href="#YYCache-源码分析" class="headerlink" title="YYCache 源码分析"></a>YYCache 源码分析</h3><p><a href="https://blog.ibireme.com/2015/10/26/yycache/" target="_blank" rel="noopener">https://blog.ibireme.com/2015/10/26/yycache/</a></p>
-<h4 id="内存缓存："><a href="#内存缓存：" class="headerlink" title="内存缓存："></a>内存缓存：</h4><p>通常一个缓存是由内存缓存和磁盘缓存组成，内存缓存提供容量小但高速的存取功能，磁盘缓存提供大量但低速的持久化存储。相对于磁盘缓存，内存缓存的设计要更简单些。<br>NSCache 是苹果提供的一个简单的内存缓存，它有着和NSDictionary类似的API，不同的是它是线程安全的，并且不会retain key。线程安全是由pthread_mutex完成的。性能和key的相似度有关，如果有大量相似的key，NSCache 的存取性能会下降的非常厉害，大量的时间被消耗在CFStringEqual() 上；<br>YYMemoryCache 去掉了异步访问的接口，尽量优化了同步访问的性能，用OSSpinLock 来保证线程安全。缓存内部用双向链表和 NSDictionary 实现了 LRU 淘汰算法；<br>YYKit 作者测试结果：<br>YYMemoryCache 的性能仅次于 NSDictionary + OSSpinLock；<br>NSCache 的写入性能稍差，读取性能不错；
+<h4 id="内存缓存："><a href="#内存缓存：" class="headerlink" title="内存缓存："></a>内存缓存：</h4><p>通常一个缓存是由内存缓存和磁盘缓存组成，内存缓存提供容量小但高速的存取功能，磁盘缓存提供大量但低速的持久化存储。相对于磁盘缓存，内存缓存的设计要更简单些。<br>NSCache 是苹果提供的一个简单的内存缓存，它有着和NSDictionary类似的API，不同的是它是线程安全的，并且不会retain key。线程安全是由pthread_mutex完成的。性能和key的相似度有关，如果有大量相似的key，NSCache 的存取性能会下降的非常厉害，大量的时间被消耗在CFStringEqual() 上；<br>YYMemoryCache 去掉了异步访问的接口，尽量优化了同步访问的性能，用OSSpinLock 来保证线程安全。缓存内部用双向链表和 NSDictionary 实现了 LRU 淘汰算法；<br>YYKit 作者测试结果：<br>YYMemoryCache 的性能仅次于 NSDictionary + OSSpinLock；<br>NSCache 的写入性能稍差，读取性能不错；<br>
         
-          <a class="article-more-a" href="/2019/03/16/源码解读/#more">more >></a>
+          <a class="article-more-a" href="/2019/03/16/源码解读/#more">阅读全文 >></a>
         
       
 
