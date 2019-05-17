@@ -16,7 +16,7 @@
 <meta property="og:site_name" content="机灵猴">
 <meta property="og:description" content="YYCache 源码分析https://blog.ibireme.com/2015/10/26/yycache/ 内存缓存：通常一个缓存是由内存缓存和磁盘缓存组成，内存缓存提供容量小但高速的存取功能，磁盘缓存提供大量但低速的持久化存储。相对于磁盘缓存，内存缓存的设计要更简单些。NSCache 是苹果提供的一个简单的内存缓存，它有着和NSDictionary类似的API，不同的是它是线程安全的，并且">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-05-17T03:31:02.962Z">
+<meta property="og:updated_time" content="2019-05-17T03:34:51.653Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="源码解读">
 <meta name="twitter:description" content="YYCache 源码分析https://blog.ibireme.com/2015/10/26/yycache/ 内存缓存：通常一个缓存是由内存缓存和磁盘缓存组成，内存缓存提供容量小但高速的存取功能，磁盘缓存提供大量但低速的持久化存储。相对于磁盘缓存，内存缓存的设计要更简单些。NSCache 是苹果提供的一个简单的内存缓存，它有着和NSDictionary类似的API，不同的是它是线程安全的，并且">
@@ -181,7 +181,7 @@
       
         <h3 id="YYCache-源码分析"><a href="#YYCache-源码分析" class="headerlink" title="YYCache 源码分析"></a>YYCache 源码分析</h3><p><a href="https://blog.ibireme.com/2015/10/26/yycache/" target="_blank" rel="noopener">https://blog.ibireme.com/2015/10/26/yycache/</a></p>
 <h4 id="内存缓存："><a href="#内存缓存：" class="headerlink" title="内存缓存："></a>内存缓存：</h4><p>通常一个缓存是由内存缓存和磁盘缓存组成，内存缓存提供容量小但高速的存取功能，磁盘缓存提供大量但低速的持久化存储。相对于磁盘缓存，内存缓存的设计要更简单些。<br>NSCache 是苹果提供的一个简单的内存缓存，它有着和NSDictionary类似的API，不同的是它是线程安全的，并且不会retain key。线程安全是由pthread_mutex完成的。性能和key的相似度有关，如果有大量相似的key，NSCache 的存取性能会下降的非常厉害，大量的时间被消耗在CFStringEqual() 上；<br>YYMemoryCache 去掉了异步访问的接口，尽量优化了同步访问的性能，用OSSpinLock 来保证线程安全。缓存内部用双向链表和 NSDictionary 实现了 LRU 淘汰算法；<br>YYKit 作者测试结果：<br>YYMemoryCache 的性能仅次于 NSDictionary + OSSpinLock；<br>NSCache 的写入性能稍差，读取性能不错；</p>
-<p>&lt;!- more -&gt; </p>
+<p>&lt;!- 阅读全文 -&gt; </p>
 <h4 id="磁盘缓存："><a href="#磁盘缓存：" class="headerlink" title="磁盘缓存："></a>磁盘缓存：</h4><p>目前开源的第三方库和一些闭源的实现，包括NSURLCache、Facebook 的 FBDiskCache 等，他们的实现技术大致分为三类：基于文件读写、基于 mmap 文件内存映射、基于数据库；<br>比如 SDWebImage 的缓存是基于文件系统的，即一个value对应一个文件，通过文件读写来缓存数据。缺点：不便扩展，没有元数据，难以实现较好的淘汰算法，数据统计缓慢；<br>FastImageCache 采用的是 mmap 将文件映射到内存。用过 MongoDB 的人应该熟悉 mmap 的缺陷：热数据的文件不要超过物理内存大小，不然 mmap 会导致内存交换严重降低性能；另外内存中的数据时定时 flush 到文件的，如果数据还未同步时程序挂掉，就会导致数据错误。抛开这些缺陷来说，mmap 性能非常高；<br>NSURLCache、FBDiskCache 都是基于 SQLite 数据库的，基于数据库的缓存可以很好的支持元数据、扩展方便、数据统计速度快，也很容易实现LRU 或其他淘汰算法。但是SQLite 读取性能取决于数据大小：当单条数据小于20K时，数据越小 SQLite 读取性能越高；单条数据大于20K时，直接写为文件速度会更快一些。磁盘缓存最好是把SQLite 和文件存储结合起来。<br>YYDiskCache 也是采用的 SQLite 配合文件的存储方式，得益于 SQLite 存储的元数据，YYDiskCache 实现了 LRU 淘汰算法、更快的数据统计，更多的容量控制选项。此处 LRU 是双向链表配合 NSDictionary 实现的，增、删、改、查、清空的时间复杂度都是O（1），这个头文件注释里也有说明。这里的对象释放也是在特定的queue中释放，因为 OC 对象的释放也是比较消耗性能的，作者的目的应该是处于对性能的考虑，把 OC 对象放到子线程中去 release 。作者在《iOS 保持界面流畅的技巧》中提到了这一点。多线程下，QPS（每秒查询率）不会高于单线程，但会降低多少要看具体情况。由于 cache 内部使用锁来保证线程安全的，所以线程数越多、访问竞争越激烈、CPU 资源就消耗越大，QPS 也就越低。当然在实际APP开发中，一般使用时不会遇到这种极端情况。</p>
 <h4 id="锁：（YYCache-线程安全的处理）"><a href="#锁：（YYCache-线程安全的处理）" class="headerlink" title="锁：（YYCache 线程安全的处理）"></a>锁：（YYCache 线程安全的处理）</h4><p>ASSpinLock 自旋锁，性能最高的锁。原理比较简单，就是一直 do while 忙等。他的缺点是当等待时会消耗大量的 CPU 资源，所以它不适用于较长时间的任务。对于内存缓存的存取来说，它非常合适；<br>dispatch_senaphonre 是持有计数的信号量，该计数时多线程变成中的技术类型信号。所谓信号，类似于过马路时常用的手旗，可以通过时举起手旗，不可通过时放下手旗。而dispatch_semaphore 使用计数来实现该功能。当信号总量设为 1 时也可以当做锁来看。在没有等待情况出现时，它的性能比 pthread_mutex （互斥锁）还要高，但一旦有等待情况出现时，性能就会下降很多。相对于OSSpinLock 来说，它的优势在于等待时不会消耗 CPU 资源。对磁盘缓存还说，它比较合适。</p>
 <!-- ![meinv](../images/meinv.jpg) -->

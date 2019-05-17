@@ -22,7 +22,7 @@
 <meta property="og:image" content="http://yoursite.com/2019/03/25/images/tongyonglianjie04.jpng">
 <meta property="og:image" content="http://yoursite.com/2019/03/25/images/tongyonglianjie05.jpg">
 <meta property="og:image" content="http://yoursite.com/2019/03/25/images/tongyonglinajie06.jpg">
-<meta property="og:updated_time" content="2019-05-17T03:31:37.920Z">
+<meta property="og:updated_time" content="2019-05-17T03:35:01.238Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="iOS通用链接配置（点击网页直接打开APP的详情页面）">
 <meta name="twitter:description" content="https://www.jianshu.com/p/53588cf8dbc8https://www.jianshu.com/p/1970fd59de12http://www.cnblogs.com/ysk-china/p/5777299.htmlhttp://strivingboy.github.io/blog/2015/09/27/ios9/https://www.jianshu.com/p/7">
@@ -206,7 +206,11 @@
         }
     ]
 }
-</code></pre>}<br>&lt;!- more -&gt;<br>根据 paths 键设定允许的路径列表, 或只是一个星号如果你想打开 APP 而不管路径是 什么<br>注意：paths 路径是大小写敏感的<br>NOTE:The website paths you specify in the paths array are case sensitive.”<br>“appID”组成部分：TeamID + BundleId TeamID可以从苹果开发账号页面也“Your Account”下查看，BundleId就直接在工程里看了</li>
+</code></pre>}</li>
+</ul>
+<p>&lt;!- 阅读全文 -&gt;</p>
+<p>根据 paths 键设定允许的路径列表, 或只是一个星号如果你想打开 APP 而不管路径是 什么<br>注意：paths 路径是大小写敏感的<br>NOTE:The website paths you specify in the paths array are case sensitive.”<br>“appID”组成部分：TeamID + BundleId TeamID可以从苹果开发账号页面也“Your Account”下查看，BundleId就直接在工程里看了</p>
+<ul>
 <li>Step2:上传 apple-app-site-association 文件<br>注意：<br>1、上传到web server根目录下<br>2、web server 需要支持https,客户端需要通告https访问，并且不支持任何重定向<br>upload it to the root of your HTTPS web server. The file needs to be accessible via HTTPS—without any redirects—at https:///apple-app-site-association. Next, you need to handle universal links in your app.</li>
 <li>Step3:在 APP 里处理通用链接<ul>
 <li>1、添加域名到 Capabilities<br>在 Xcode 的 capabilities 里 添加你的 APP 域名, 必须用 applinks: 前置它这将使APP从上门的域名请求Step2中创建的JSON 文件 apple-app-site-association。当你第一次启动 APP，它会从 <a href="https://domain.com/apple-app-site-association" target="_blank" rel="noopener">https://domain.com/apple-app-site-association</a> 下载这个文件。</li>
